@@ -41,7 +41,7 @@ class AddNewAddressScreen extends StatefulWidget {
       this.isEnableUpdate = false,
       this.address,
       this.fromCheckout = false,
-      this.isBilling});
+      this.isBilling = false});
 
   @override
   State<AddNewAddressScreen> createState() => _AddNewAddressScreenState();
@@ -503,48 +503,51 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                         textRegular.copyWith())
                                               ])))),
                                 )),
-                            Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: Dimensions.paddingSizeSmall),
-                                child: SizedBox(
-                                    height: 50,
-                                    child: Row(children: <Widget>[
-                                      Row(children: [
-                                        Radio<Address>(
-                                            value: Address.shipping,
-                                            groupValue: _address,
-                                            onChanged: (Address? value) {
-                                              setState(() {
-                                                _address = value;
-                                              });
-                                            }),
-                                        Text(
-                                          getTranslated('shipping_address',
-                                                  context) ??
-                                              '',
-                                          style: textRegular.copyWith(
-                                              fontSize:
-                                                  Dimensions.fontSizeLarge),
-                                        ),
-                                      ]),
-                                      Row(children: [
-                                        Radio<Address>(
-                                            value: Address.billing,
-                                            groupValue: _address,
-                                            onChanged: (Address? value) {
-                                              setState(() {
-                                                _address = value;
-                                              });
-                                            }),
-                                        Text(
-                                            getTranslated('billing_address',
-                                                    context) ??
-                                                '',
-                                            style: textRegular.copyWith(
-                                                fontSize:
-                                                    Dimensions.fontSizeLarge))
-                                      ])
-                                    ]))),
+                            // Padding(
+                            //     padding: const EdgeInsets.symmetric(
+                            //         vertical: Dimensions.paddingSizeSmall),
+                            //     child: SizedBox(
+                            //         height: 50,
+                            //         child: Row(children: <Widget>[
+                            //           Row(children: [
+                            //             Radio<Address>(
+                            //                 value: Address.shipping,
+                            //                 groupValue: _address,
+                            //                 onChanged: (Address? value) {
+                            //                   setState(() {
+                            //                     _address = value;
+                            //                   });
+                            //                 }),
+                            //             Text(
+                            //               getTranslated('shipping_address',
+                            //                       context) ??
+                            //                   '',
+                            //               style: textRegular.copyWith(
+                            //                   fontSize:
+                            //                       Dimensions.fontSizeLarge),
+                            //             ),
+                            //           ]),
+                            //           Row(children: [
+                            //             Radio<Address>(
+                            //                 value: Address.billing,
+                            //                 groupValue: _address,
+                            //                 onChanged: (Address? value) {
+                            //                   setState(() {
+                            //                     _address = value;
+                            //                   });
+                            //                 }),
+                            //             Text(
+                            //                 getTranslated('billing_address',
+                            //                         context) ??
+                            //                     '',
+                            //                 style: textRegular.copyWith(
+                            //                     fontSize:
+                            //                         Dimensions.fontSizeLarge))
+                            //           ])
+                            //         ]))),
+                            SizedBox(
+                              height: Dimensions.paddingSizeSmall,
+                            ),
                             CustomTextFieldWidget(
                               labelText:
                                   getTranslated('delivery_address', context),

@@ -206,156 +206,157 @@ class _ShippingDetailsWidgetState extends State<ShippingDetailsWidget> {
             //       ]),
             //     ),
             //   ),
-            if (widget.billingAddress && !shippingProvider.sameAsBilling)
-              Card(
-                  child: Container(
-                padding: const EdgeInsets.all(Dimensions.paddingSizeDefault),
-                decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.circular(Dimensions.paddingSizeDefault),
-                    color: Theme.of(context).cardColor),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                                child: Row(children: [
-                              SizedBox(
-                                  width: 18,
-                                  child: Image.asset(Images.billingTo)),
-                              Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal:
-                                          Dimensions.paddingSizeExtraSmall),
-                                  child: Text(
-                                      '${getTranslated('billing_to', context)}',
-                                      style: textMedium.copyWith(
-                                          fontSize: Dimensions.fontSizeLarge)))
-                            ])),
-                            InkWell(
-                              onTap: () => Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          const SavedBillingAddressListScreen())),
-                              child: SizedBox(
-                                  width: 20,
-                                  child: Image.asset(
-                                    Images.edit,
-                                    scale: 3,
-                                    color: Theme.of(context).primaryColor,
-                                  )),
-                            ),
-                          ]),
-                      const SizedBox(
-                        height: Dimensions.paddingSizeDefault,
-                      ),
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              (shippingProvider.billingAddressIndex != null &&
-                                      (locationProvider
-                                              .addressList?.isNotEmpty ??
-                                          false))
-                                  ? locationProvider
-                                      .addressList![
-                                          shippingProvider.billingAddressIndex!]
-                                      .addressType!
-                                      .capitalize()
-                                  : '${getTranslated('address_type', context)}',
-                              style: textRegular.copyWith(
-                                  fontSize: Dimensions.fontSizeDefault),
-                              maxLines: 1,
-                              overflow: TextOverflow.fade,
-                            ),
-                            const Divider(thickness: .125),
-                            (shippingProvider.billingAddressIndex != null &&
-                                    (locationProvider.addressList?.isNotEmpty ??
-                                        false))
-                                ? Column(children: [
-                                    AddressInfoItem(
-                                        icon: Images.user,
-                                        title: locationProvider
-                                                .addressList?[shippingProvider
-                                                    .billingAddressIndex!]
-                                                .contactPersonName ??
-                                            ''),
-                                    AddressInfoItem(
-                                        icon: Images.callIcon,
-                                        title: locationProvider
-                                                .addressList?[shippingProvider
-                                                    .billingAddressIndex!]
-                                                .phone ??
-                                            ''),
-                                    AddressInfoItem(
-                                        icon: Images.address,
-                                        title: locationProvider
-                                                .addressList?[shippingProvider
-                                                    .billingAddressIndex!]
-                                                .address ??
-                                            ''),
-                                  ])
-                                : Text(
-                                    getTranslated('add_your_address', context)!,
-                                    style: titilliumRegular.copyWith(
-                                        fontSize: Dimensions.fontSizeSmall),
-                                    maxLines: 3,
-                                    overflow: TextOverflow.fade,
-                                  ),
-                          ]),
-                    ]),
-              )),
-            if (widget.billingAddress && shippingProvider.sameAsBilling)
-              Card(
-                  child: Container(
-                padding: const EdgeInsets.all(Dimensions.paddingSizeDefault),
-                decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.circular(Dimensions.paddingSizeDefault),
-                    color: Theme.of(context).cardColor),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                              child: Row(children: [
-                            SizedBox(
-                                width: 18,
-                                child: Image.asset(Images.billingTo)),
-                            Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal:
-                                        Dimensions.paddingSizeExtraSmall),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                        '${getTranslated('billing_to', context)}',
-                                        style: textMedium.copyWith(
-                                            fontSize:
-                                                Dimensions.fontSizeLarge)),
-                                    const SizedBox(
-                                        width: Dimensions.paddingSizeSmall),
-                                    Text(
-                                        '(${getTranslated("same_as_delivery", context)})',
-                                        style: textMedium.copyWith(
-                                            fontSize:
-                                                Dimensions.fontSizeDefault,
-                                            color: Theme.of(context)
-                                                .hintColor
-                                                .withValues(alpha: .75))),
-                                  ],
-                                ))
-                          ])),
-                        ]),
-                  ],
-                ),
-              )),
+            // if (widget.billingAddress && !shippingProvider.sameAsBilling)
+            //   Card(
+            //       child: Container(
+            //     padding: const EdgeInsets.all(Dimensions.paddingSizeDefault),
+            //     decoration: BoxDecoration(
+            //         borderRadius:
+            //             BorderRadius.circular(Dimensions.paddingSizeDefault),
+            //         color: Theme.of(context).cardColor),
+            //     child: Column(
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: [
+            //           Row(
+            //               mainAxisAlignment: MainAxisAlignment.start,
+            //               crossAxisAlignment: CrossAxisAlignment.start,
+            //               children: [
+            //                 Expanded(
+            //                     child: Row(children: [
+            //                   SizedBox(
+            //                       width: 18,
+            //                       child: Image.asset(Images.billingTo)),
+            //                   Padding(
+            //                       padding: const EdgeInsets.symmetric(
+            //                           horizontal:
+            //                               Dimensions.paddingSizeExtraSmall),
+            //                       child: Text(
+            //                           '${getTranslated('billing_to', context)}',
+            //                           style: textMedium.copyWith(
+            //                               fontSize: Dimensions.fontSizeLarge)))
+            //                 ])),
+            //                 InkWell(
+            //                   onTap: () => Navigator.of(context).push(
+            //                       MaterialPageRoute(
+            //                           builder: (BuildContext context) =>
+            //                               const SavedBillingAddressListScreen())),
+            //                   child: SizedBox(
+            //                       width: 20,
+            //                       child: Image.asset(
+            //                         Images.edit,
+            //                         scale: 3,
+            //                         color: Theme.of(context).primaryColor,
+            //                       )),
+            //                 ),
+            //               ]),
+            //           const SizedBox(
+            //             height: Dimensions.paddingSizeDefault,
+            //           ),
+            //           Column(
+            //               crossAxisAlignment: CrossAxisAlignment.start,
+            //               children: [
+            //                 Text(
+            //                   (shippingProvider.billingAddressIndex != null &&
+            //                           (locationProvider
+            //                                   .addressList?.isNotEmpty ??
+            //                               false))
+            //                       ? locationProvider
+            //                           .addressList![
+            //                               shippingProvider.billingAddressIndex!]
+            //                           .addressType!
+            //                           .capitalize()
+            //                       : '${getTranslated('address_type', context)}',
+            //                   style: textRegular.copyWith(
+            //                       fontSize: Dimensions.fontSizeDefault),
+            //                   maxLines: 1,
+            //                   overflow: TextOverflow.fade,
+            //                 ),
+            //                 const Divider(thickness: .125),
+            //                 (shippingProvider.billingAddressIndex != null &&
+            //                         (locationProvider.addressList?.isNotEmpty ??
+            //                             false))
+            //                     ? Column(children: [
+            //                         AddressInfoItem(
+            //                             icon: Images.user,
+            //                             title: locationProvider
+            //                                     .addressList?[shippingProvider
+            //                                         .billingAddressIndex!]
+            //                                     .contactPersonName ??
+            //                                 ''),
+            //                         AddressInfoItem(
+            //                             icon: Images.callIcon,
+            //                             title: locationProvider
+            //                                     .addressList?[shippingProvider
+            //                                         .billingAddressIndex!]
+            //                                     .phone ??
+            //                                 ''),
+            //                         AddressInfoItem(
+            //                             icon: Images.address,
+            //                             title: locationProvider
+            //                                     .addressList?[shippingProvider
+            //                                         .billingAddressIndex!]
+            //                                     .address ??
+            //                                 ''),
+            //                       ])
+            //                     : Text(
+            //                         getTranslated('add_your_address', context)!,
+            //                         style: titilliumRegular.copyWith(
+            //                             fontSize: Dimensions.fontSizeSmall),
+            //                         maxLines: 3,
+            //                         overflow: TextOverflow.fade,
+            //                       ),
+            //               ]),
+            //         ]),
+            //   )),
+            // if (widget.billingAddress && shippingProvider.sameAsBilling)
+            //   Card(
+            //       child: Container(
+            //     padding: const EdgeInsets.all(Dimensions.paddingSizeDefault),
+            //     decoration: BoxDecoration(
+            //         borderRadius:
+            //             BorderRadius.circular(Dimensions.paddingSizeDefault),
+            //         color: Theme.of(context).cardColor),
+            //     child: Column(
+            //       crossAxisAlignment: CrossAxisAlignment.start,
+            //       children: [
+            //         Row(
+            //             mainAxisAlignment: MainAxisAlignment.start,
+            //             crossAxisAlignment: CrossAxisAlignment.start,
+            //             children: [
+            //               Expanded(
+            //                   child: Row(children: [
+            //                 SizedBox(
+            //                     width: 18,
+            //                     child: Image.asset(Images.billingTo)),
+            //                 Padding(
+            //                     padding: const EdgeInsets.symmetric(
+            //                         horizontal:
+            //                             Dimensions.paddingSizeExtraSmall),
+            //                     child: Row(
+            //                       children: [
+            //                         Text(
+            //                             '${getTranslated('billing_to', context)}',
+            //                             style: textMedium.copyWith(
+            //                                 fontSize:
+            //                                     Dimensions.fontSizeLarge)),
+            //                         const SizedBox(
+            //                             width: Dimensions.paddingSizeSmall),
+            //                         Text(
+            //                             '(${getTranslated("same_as_delivery", context)})',
+            //                             style: textMedium.copyWith(
+            //                                 fontSize:
+            //                                     Dimensions.fontSizeDefault,
+            //                                 color: Theme.of(context)
+            //                                     .hintColor
+            //                                     .withValues(alpha: .75))),
+            //                       ],
+            //                     ))
+            //               ])),
+            //             ]),
+            //       ],
+            //     ),
+            //   )),
+
             isGuestMode
                 ? (!widget.hasPhysical)
                     ? CreateAccountWidget(formKey: widget.passwordFormKey)
