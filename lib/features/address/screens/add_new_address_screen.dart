@@ -54,7 +54,8 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
       TextEditingController();
   final TextEditingController _contactPersonNumberController =
       TextEditingController();
-  final TextEditingController _cityController = TextEditingController();
+  final TextEditingController _cityController =
+      TextEditingController(text: "Muscut");
   final TextEditingController _zipCodeController = TextEditingController();
   final TextEditingController _countryCodeController = TextEditingController();
   final FocusNode _addressNode = FocusNode();
@@ -67,7 +68,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
   CameraPosition? _cameraPosition;
   bool _updateAddress = true;
   Address? _address;
-  String zip = '', country = 'IN';
+  String zip = '', country = 'OM';
   late LatLng _defaut;
 
   final GlobalKey<FormState> _addressFormKey = GlobalKey();
@@ -101,7 +102,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                     .configModel!
                     .countryCode!)
             .name ??
-        'Bangladesh';
+        'Oman';
     Provider.of<AddressController>(context, listen: false).getAddressType();
     Provider.of<AddressController>(context, listen: false)
         .getRestrictedDeliveryCountryList();
@@ -759,7 +760,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                               inputAction: TextInputAction.next,
                               focusNode: _cityNode,
                               required: true,
-                              nextFocus: _zipNode,
+                              // nextFocus: _zipNode,
                               prefixIcon: Images.city,
                               controller: _cityController,
                               validator: (value) =>
