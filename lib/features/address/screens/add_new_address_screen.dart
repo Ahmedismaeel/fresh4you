@@ -753,22 +753,22 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                             ],
                             const SizedBox(
                                 height: Dimensions.paddingSizeDefaultAddress),
-                            // CustomTextFieldWidget(
-                            //   labelText: getTranslated('city', context),
-                            //   hintText: getTranslated('city', context),
-                            //   inputType: TextInputType.streetAddress,
-                            //   inputAction: TextInputAction.next,
-                            //   focusNode: _cityNode,
-                            //   required: true,
-                            //   // nextFocus: _zipNode,
-                            //   prefixIcon: Images.city,
-                            //   controller: _cityController,
-                            //   validator: (value) =>
-                            //       ValidateCheck.validateEmptyText(
-                            //           value, 'city_is_required'),
-                            // ),
-                            // const SizedBox(
-                            //     height: Dimensions.paddingSizeDefaultAddress),
+                            CustomTextFieldWidget(
+                              labelText: getTranslated('city', context),
+                              hintText: getTranslated('city', context),
+                              inputType: TextInputType.streetAddress,
+                              inputAction: TextInputAction.next,
+                              focusNode: _cityNode,
+                              required: true,
+                              // nextFocus: _zipNode,
+                              prefixIcon: Images.city,
+                              controller: _cityController,
+                              validator: (value) =>
+                                  ValidateCheck.validateEmptyText(
+                                      value, 'city_is_required'),
+                            ),
+                            const SizedBox(
+                                height: Dimensions.paddingSizeDefaultAddress),
                             // Provider.of<SplashController>(context,
                             //                 listen: false)
                             //             .configModel!
