@@ -753,107 +753,107 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                             ],
                             const SizedBox(
                                 height: Dimensions.paddingSizeDefaultAddress),
-                            CustomTextFieldWidget(
-                              labelText: getTranslated('city', context),
-                              hintText: getTranslated('city', context),
-                              inputType: TextInputType.streetAddress,
-                              inputAction: TextInputAction.next,
-                              focusNode: _cityNode,
-                              required: true,
-                              // nextFocus: _zipNode,
-                              prefixIcon: Images.city,
-                              controller: _cityController,
-                              validator: (value) =>
-                                  ValidateCheck.validateEmptyText(
-                                      value, 'city_is_required'),
-                            ),
-                            const SizedBox(
-                                height: Dimensions.paddingSizeDefaultAddress),
-                            Provider.of<SplashController>(context,
-                                            listen: false)
-                                        .configModel!
-                                        .deliveryZipCodeAreaRestriction ==
-                                    0
-                                ? CustomTextFieldWidget(
-                                    labelText: getTranslated('zip', context),
-                                    hintText: getTranslated('zip', context),
-                                    inputAction: TextInputAction.done,
-                                    focusNode: _zipNode,
-                                    required: true,
-                                    prefixIcon: Images.city,
-                                    controller: _zipCodeController,
-                                    validator: (value) =>
-                                        ValidateCheck.validateEmptyText(
-                                            value, 'zip_code_is_required'),
-                                  )
-                                : Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    decoration: BoxDecoration(
-                                        color: Theme.of(context).cardColor,
-                                        borderRadius: BorderRadius.circular(5),
-                                        border: Border.all(
-                                            width: .1,
-                                            color: Theme.of(context)
-                                                .hintColor
-                                                .withValues(alpha: 0.1))),
-                                    child: DropdownButtonFormField2<String>(
-                                      isExpanded: true,
-                                      isDense: true,
-                                      decoration: InputDecoration(
-                                          contentPadding:
-                                              const EdgeInsets.symmetric(
-                                                  vertical: 0),
-                                          border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5))),
-                                      hint: Row(
-                                        children: [
-                                          Image.asset(Images.city),
-                                          const SizedBox(
-                                            width: Dimensions.paddingSizeSmall,
-                                          ),
-                                          Text(_zipCodeController.text,
-                                              style: textRegular.copyWith(
-                                                  fontSize: Dimensions
-                                                      .fontSizeDefault,
-                                                  color: Theme.of(context)
-                                                      .textTheme
-                                                      .bodyLarge!
-                                                      .color)),
-                                        ],
-                                      ),
-                                      items: addressController.restrictedZipList
-                                          .map((item) => DropdownMenuItem<
-                                                  String>(
-                                              value: item.zipcode,
-                                              child: Text(item.zipcode!,
-                                                  style: textRegular.copyWith(
-                                                      fontSize: Dimensions
-                                                          .fontSizeSmall))))
-                                          .toList(),
-                                      onChanged: (value) {
-                                        _zipCodeController.text = value!;
-                                      },
-                                      buttonStyleData: const ButtonStyleData(
-                                        padding: EdgeInsets.only(right: 8),
-                                      ),
-                                      iconStyleData: IconStyleData(
-                                          icon: Icon(Icons.arrow_drop_down,
-                                              color:
-                                                  Theme.of(context).hintColor),
-                                          iconSize: 24),
-                                      dropdownStyleData: DropdownStyleData(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(5))),
-                                      menuItemStyleData:
-                                          const MenuItemStyleData(
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 16)),
-                                    ),
-                                  ),
-                            const SizedBox(
-                                height: Dimensions.paddingSizeDefaultAddress),
+                            // CustomTextFieldWidget(
+                            //   labelText: getTranslated('city', context),
+                            //   hintText: getTranslated('city', context),
+                            //   inputType: TextInputType.streetAddress,
+                            //   inputAction: TextInputAction.next,
+                            //   focusNode: _cityNode,
+                            //   required: true,
+                            //   // nextFocus: _zipNode,
+                            //   prefixIcon: Images.city,
+                            //   controller: _cityController,
+                            //   validator: (value) =>
+                            //       ValidateCheck.validateEmptyText(
+                            //           value, 'city_is_required'),
+                            // ),
+                            // const SizedBox(
+                            //     height: Dimensions.paddingSizeDefaultAddress),
+                            // Provider.of<SplashController>(context,
+                            //                 listen: false)
+                            //             .configModel!
+                            //             .deliveryZipCodeAreaRestriction ==
+                            //         0
+                            //     ? CustomTextFieldWidget(
+                            //         labelText: getTranslated('zip', context),
+                            //         hintText: getTranslated('zip', context),
+                            //         inputAction: TextInputAction.done,
+                            //         focusNode: _zipNode,
+                            //         required: true,
+                            //         prefixIcon: Images.city,
+                            //         controller: _zipCodeController,
+                            //         validator: (value) =>
+                            //             ValidateCheck.validateEmptyText(
+                            //                 value, 'zip_code_is_required'),
+                            //       )
+                            //     : Container(
+                            //         width: MediaQuery.of(context).size.width,
+                            //         decoration: BoxDecoration(
+                            //             color: Theme.of(context).cardColor,
+                            //             borderRadius: BorderRadius.circular(5),
+                            //             border: Border.all(
+                            //                 width: .1,
+                            //                 color: Theme.of(context)
+                            //                     .hintColor
+                            //                     .withValues(alpha: 0.1))),
+                            //         child: DropdownButtonFormField2<String>(
+                            //           isExpanded: true,
+                            //           isDense: true,
+                            //           decoration: InputDecoration(
+                            //               contentPadding:
+                            //                   const EdgeInsets.symmetric(
+                            //                       vertical: 0),
+                            //               border: OutlineInputBorder(
+                            //                   borderRadius:
+                            //                       BorderRadius.circular(5))),
+                            //           hint: Row(
+                            //             children: [
+                            //               Image.asset(Images.city),
+                            //               const SizedBox(
+                            //                 width: Dimensions.paddingSizeSmall,
+                            //               ),
+                            //               Text(_zipCodeController.text,
+                            //                   style: textRegular.copyWith(
+                            //                       fontSize: Dimensions
+                            //                           .fontSizeDefault,
+                            //                       color: Theme.of(context)
+                            //                           .textTheme
+                            //                           .bodyLarge!
+                            //                           .color)),
+                            //             ],
+                            //           ),
+                            //           items: addressController.restrictedZipList
+                            //               .map((item) => DropdownMenuItem<
+                            //                       String>(
+                            //                   value: item.zipcode,
+                            //                   child: Text(item.zipcode!,
+                            //                       style: textRegular.copyWith(
+                            //                           fontSize: Dimensions
+                            //                               .fontSizeSmall))))
+                            //               .toList(),
+                            //           onChanged: (value) {
+                            //             _zipCodeController.text = value!;
+                            //           },
+                            //           buttonStyleData: const ButtonStyleData(
+                            //             padding: EdgeInsets.only(right: 8),
+                            //           ),
+                            //           iconStyleData: IconStyleData(
+                            //               icon: Icon(Icons.arrow_drop_down,
+                            //                   color:
+                            //                       Theme.of(context).hintColor),
+                            //               iconSize: 24),
+                            //           dropdownStyleData: DropdownStyleData(
+                            //               decoration: BoxDecoration(
+                            //                   borderRadius:
+                            //                       BorderRadius.circular(5))),
+                            //           menuItemStyleData:
+                            //               const MenuItemStyleData(
+                            //                   padding: EdgeInsets.symmetric(
+                            //                       horizontal: 16)),
+                            //         ),
+                            //       ),
+                            // const SizedBox(
+                            //     height: Dimensions.paddingSizeDefaultAddress),
                             Container(
                               height: 50.0,
                               margin: const EdgeInsets.all(

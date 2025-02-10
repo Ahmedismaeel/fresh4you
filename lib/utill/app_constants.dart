@@ -5,7 +5,7 @@ class AppConstants {
   static const String appName = 'Fresh4You';
   static const String slogan = 'E-Commerce Marketplace';
   static const String appVersion = '15.0';
-  static const String baseUrl = 'https://fresh4you.ip-teamway.com';
+  static const String baseUrl = 'https://freshforyou.ip-teamway.com';
   static const String userId = 'userId';
   static const String name = 'name';
   static const String categoriesUri = '/api/v1/categories?guest_id=1';
